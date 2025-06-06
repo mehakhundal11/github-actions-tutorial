@@ -1,0 +1,22 @@
+name: Run SysInfo Script
+
+on:
+  push:
+    branches:
+      - feature/github-actions
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Run SysInfo script
+      run: node SysInfo.js
